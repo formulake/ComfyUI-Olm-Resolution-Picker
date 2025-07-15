@@ -37,28 +37,3 @@
 448x320: landscape (4:3)
 448x256: widescreen (16:9)
 576x256: cinematic (21:9)
-
--- HiDream
-1024x1024: square (1:1)
-
--- Wan 2.1
-1280x720: widescreen (16:9)
-832x480: widescreen (16:9)
-
--- LTX Video
-1280x720: widescreen (16:9)
-1216x704: widescreen (16:9)
-864x576: landscape (3:2)
-768x512: landscape (3:2)
-
--- Hunyuan Video
-960x960: square (1:1)
-720x720: square (1:1)
-1104x832: landscape (4:3)
-832x1104: portrait (3:4)
-1280x720: widescreen (16:9)
-720x1280: portrait (9:16)
-832x624: landscape (4:3)
-624x832: portrait (3:4)
-960x544: widescreen (16:9)
-544x960: portrait (9:16)
