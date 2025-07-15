@@ -7,6 +7,7 @@ class OlmResolutionPicker:
     - Label support via ':' separator for descriptions
     - Comments with //
     - Validated and grouped dropdown menu
+    - NEW: Swap dimensions toggle for portrait/landscape flip
     """
 
     RESOLUTION_FILE = os.path.abspath(
@@ -23,6 +24,7 @@ class OlmResolutionPicker:
                 }),
                 "show_checker": ("BOOLEAN", {"default": False}),
                 "show_image": ("BOOLEAN", {"default": False}),
+                "swap_dimensions": ("BOOLEAN", {"default": False}),
             }
         }
 
@@ -79,7 +81,7 @@ class OlmResolutionPicker:
     FUNCTION = "pick"
     CATEGORY = "Utilities"
 
-    def pick(self, resolution, show_checker=False, show_image=False):
+    def pick(self, resolution, show_checker=False, show_image=False, swap_dimensions=False):
         if resolution.startswith("--"):
             print(f"[OlmResolutionPicker] Ignored non-selectable header: '{resolution}'. Falling back to 1024x1024.")
             return (1024, 1024)
@@ -87,13 +89,14 @@ class OlmResolutionPicker:
         base_res = resolution.split(":")[0].strip()
         try:
             width, height = map(int, base_res.lower().split("x"))
+            if swap_dimensions:
+                width, height = height, width
             return (width, height)
         except Exception as e:
             print(f"[Error] Failed to parse resolution '{resolution}': {e}")
             return (1024, 1024)
 
 WEB_DIRECTORY = "./js"
-
 
 NODE_CLASS_MAPPINGS = {
     "OlmResolutionPicker": OlmResolutionPicker,
